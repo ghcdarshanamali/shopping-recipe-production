@@ -77,4 +77,8 @@ onAddIngredients(){
 onCancel(){
   this.router.navigate(['../'],{relativeTo: this.route})
 }
+onDeleteIngredient(index: number){
+  (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+  //(<FormArray>this.recipeForm.get('ingredients')).clear(); <- to delete everything in the array
+}
 }
