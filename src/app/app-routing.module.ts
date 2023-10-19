@@ -5,6 +5,7 @@ import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.component";
 import { RecipesStartComponent } from "./recipes/recipes-start/recipes-start.component";
 import { RecipesEditComponent } from "./recipes/recipes-edit/recipes-edit.component";
+import { RecipesResolverService } from "./recipes/recipes-resolver.service";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/recipes', pathMatch: 'full'},
