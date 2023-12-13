@@ -18,6 +18,7 @@ recipesChanged = new Subject<Recipe[]>();
       ]; */
 
       private recipes: Recipe[] =[];
+      
       getRecipes(){
         return this.recipes.slice();
       }

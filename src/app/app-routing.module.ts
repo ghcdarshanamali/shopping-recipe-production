@@ -6,16 +6,20 @@ import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.com
 import { RecipesStartComponent } from "./recipes/recipes-start/recipes-start.component";
 import { RecipesEditComponent } from "./recipes/recipes-edit/recipes-edit.component";
 import { RecipesResolverService } from "./recipes/recipes-resolver.service";
+import { AuthComponent } from "./auth/auth.component";
+import { AuthGuard, IsAuthGuard } from "./auth/auth.guard";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-    {path: 'recipes', component: RecipesComponent, children: [
+    {path: 'recipes', component: RecipesComponent, 
+    canActivate: [IsAuthGuard], children: [
         {path: '', component: RecipesStartComponent},
         {path: 'new', component: RecipesEditComponent},
-        {path: ':id', component: RecipeDetailComponent},
-        {path: ':id/edit', component: RecipesEditComponent},
+        {path: ':id', component: RecipeDetailComponent},//, resolve: [RecipesResolverService]
+        {path: ':id/edit', component: RecipesEditComponent}, //, resolve: [RecipesResolverService]
     ]},
-    {path: 'shopping-list', component: ShoppingListComponent}
+    {path: 'shopping-list', component: ShoppingListComponent},
+    {path: 'login', component: AuthComponent}
 ];
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
