@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonsModule } from './common/commons.module';
 import { CoreModule } from './core.module';
+import { StoreModule } from '@ngrx/store';
+import { shopingListReducer } from './shopping-list/store/shopping-list.reducer';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { CoreModule } from './core.module';
     HttpClientModule,
     CommonsModule,
     CoreModule,
+    StoreModule.forRoot({shoppingList: shopingListReducer}),
   ],
   bootstrap: [AppComponent]
 })
