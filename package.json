@@ -29,6 +29,8 @@
     "@angular-devkit/build-angular": "^16.2.10",
     "@angular/cli": "~16.2.10",
     "@angular/compiler-cli": "^16.2.12",
+    "@ngrx/router-store": "^17.0.1",
+    "@ngrx/store-devtools": "^17.0.1",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
