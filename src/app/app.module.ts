@@ -7,7 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonsModule } from './common/commons.module';
 import { CoreModule } from './core.module';
 import { StoreModule } from '@ngrx/store';
-import { shopingListReducer } from './shopping-list/store/shopping-list.reducer';
+import * as fromApp from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { shopingListReducer } from './shopping-list/store/shopping-list.reducer'
     HttpClientModule,
     CommonsModule,
     CoreModule,
-    StoreModule.forRoot({shoppingList: shopingListReducer}),
+    StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects])
   ],
   bootstrap: [AppComponent]
 })

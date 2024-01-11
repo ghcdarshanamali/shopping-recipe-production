@@ -6,7 +6,7 @@ import { Ingredient } from 'src/app/models/ingredient.model';
 import { Recipe } from 'src/app/models/recipe.model';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
 import * as ShoppingListActions from "./../store/shopping-list.actions";
-import * as fromShoppingList from './../store/shopping-list.reducer';
+import * as fromApp from '../../store/app.reducer';
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
@@ -23,7 +23,7 @@ editMode = false;
 editedItem: Ingredient;
 
 constructor(private shoppingListService: ShoppingListService,
-  private store: Store<fromShoppingList.AppState>){}
+  private store: Store<fromApp.AppState>){}
   
 ngOnInit(): void {
   this.subscription =  this.store.select('shoppingList').subscribe(stateData => {
